@@ -27,7 +27,7 @@ export const createRole = async (req: Request, res: Response) => {
             });
         }
 
-        await Role.create({ title: title });
+        await Role.create({ title: title, active: true });
 
         return res.status(201).json({
             success: true,

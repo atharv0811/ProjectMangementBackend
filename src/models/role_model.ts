@@ -4,6 +4,7 @@ import { sequelize } from "../utils/db";
 interface RoleAttributes {
     id: number;
     title: string;
+    active: boolean
 }
 
 interface RoleCreationAttributes extends Optional<RoleAttributes, "id"> { }
@@ -28,6 +29,11 @@ const Role = sequelize.define<RoleInstance>(
                 notEmpty: true,
             },
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
     },
     {
         tableName: "role",
